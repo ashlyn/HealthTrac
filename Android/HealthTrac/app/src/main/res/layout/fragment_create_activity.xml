@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <com.gc.materialdesign.views.ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/activity_type_label"
+                        android:id="@+id/textView6"
+                        android:layout_marginRight="10dp" />
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/activities_array"
+                        android:id="@+id/activity_type_spinner"
+                        android:prompt="@string/choose_activity" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/activity_other_name_layout"
+                    android:layout_marginLeft="10dp"
+                    android:visibility="gone">
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/activity_other_name"
+                        android:hint="Activity name"
+                        app:met_floatingLabel="normal"
+                        app:met_primaryColor="@color/accent"
+                        android:singleLine="true"
+                        android:ems="20" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Date:"
+                        android:id="@+id/textView7"
+                        android:paddingRight="50dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:id="@+id/activityDate"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Time:"
+                        android:id="@+id/textView8"
+                        android:paddingRight="48dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:id="@+id/activityTime" />
+                </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Duration:"
+                    android:id="@+id/enter_activity_duration"
+                    android:paddingRight="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:id="@+id/activityDuration" />
+            </LinearLayout>
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:id="@+id/activityDistance"
+                    android:hint="Distance (miles)"
+                    app:met_floatingLabel="normal"
+                    app:met_primaryColor="@color/accent"
+                    android:ems="20" />
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:id="@+id/activityStepsTaken"
+                    android:hint="Steps taken"
+                    app:met_floatingLabel="normal"
+                    app:met_primaryColor="@color/accent"
+                    android:ems="20" />
+
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/create_activity"
+                android:id="@+id/create_activity_enter"
+                android:onClick="createActivity"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp" />
+
+        </LinearLayout>
+
+        </com.gc.materialdesign.views.ScrollView>
+
+</LinearLayout>

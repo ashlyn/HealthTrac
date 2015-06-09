@@ -1,0 +1,24 @@
+﻿@using HealthTrac.Utilities
+@using HealthTrac.Models
+@model HealthTrac.Models.LeaderboardViewModel
+
+@if (@Model.Leaders != null)
+{
+        {
+            var leaders = Model.Leaders.Select(u => u.Item1).ToList();
+            var values = Model.Leaders.Select(v => v.Item2).ToList();
+            if (leaders.Count() == 0)
+            {
+                <p>There are no current distance leaders!</p>
+            }
+            else
+            {
+                <div class="list-group">
+                    @for (int i = 0; i < leaders.Count(); i++)
+                    {
+                        @Html.DisplayLeader(leaders[i], i + 1, values[i]);
+                    }
+                </div>
+            }
+        }
+}

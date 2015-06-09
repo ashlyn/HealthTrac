@@ -1,0 +1,63 @@
+﻿@using HealthTrac.Utilities
+@model HealthTrac.Models.SearchViewModel
+
+@{
+    ViewBag.Title = string.Format("Search Results for '{0}'", Model.Key);
+}
+
+@{
+    if (!Request.IsAuthenticated)
+    {
+        <h3>Please login to view search results.</h3>
+    }
+    else
+    {
+        <div class="col-md-12 heading-block">
+            <div>
+                <h2>@string.Format("Search Results for '{0}'", Model.Key)</h2>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-6">
+                @{
+        if (!Model.Users.Any())
+                    {
+                        <h4>@string.Format("No Users Containing '{0}'", Model.Key)</h4>
+                    }
+                    else
+                    {
+                        <h4>Users</h4>
+                        <div class="list-group">
+                            @foreach (var item in Model.Users)
+                            {
+                                @Html.DisplayUser(item)
+                            }
+                        </div>
+                    }
+                }
+            </div>
+
+            <div class="col-md-6">
+            @{
+                if (!Model.Groups.Any())
+                {
+                    <h4>@string.Format("No Groups Containing '{0}'", Model.Key)</h4>
+                }
+
+                else
+                {
+
+                    <h4>Groups</h4>
+                    <div class="list-group">
+                        @foreach (var item in Model.Groups)
+                        {
+                            @Html.DisplayGroup(item)
+                        }
+                    </div>
+                }
+            }
+            </div>
+        </div>
+    }
+}

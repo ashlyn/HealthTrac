@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <org.eazegraph.lib.charts.PieChart
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/challenge_pie_chart"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:padding="8dp"
+        app:egLegendHeight="0dp"
+        app:egLegendTextSize="0sp"
+        app:egUsePieRotation="true"
+        app:egInnerPadding="80"
+        app:egUseCustomInnerValue="true"
+        app:egValueTextSize="20sp"/>
+
+</LinearLayout>

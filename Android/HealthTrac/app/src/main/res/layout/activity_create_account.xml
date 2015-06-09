@@ -1,0 +1,202 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.group7.healthtrac.CreateAccountActivity">
+
+    <include
+        layout="@layout/tool_bar"
+        android:id="@+id/create_account_tool_bar" />
+
+    <com.gc.materialdesign.views.ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/account_info">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Full name"
+                app:met_floatingLabel="normal"
+                app:met_primaryColor="@color/accent"
+                android:ems="20"
+                android:id="@+id/editName" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editPreferredName"
+                android:inputType="textCapWords"
+                android:hint="Preferred name"
+                app:met_floatingLabel="normal"
+                app:met_primaryColor="@color/accent"
+                android:ems="20" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="18sp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/birthday"
+                    android:id="@+id/birthdayLabel" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:onClick="onSelectDate"
+                    android:textSize="18sp"
+                    android:id="@+id/birthday" />
+
+            </LinearLayout>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editLocation"
+                android:inputType="textCapWords"
+                android:hint="Location (City, State) or (City, Country)"
+                app:met_floatingLabel="normal"
+                app:met_primaryColor="@color/accent"
+                android:ems="20" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords"
+                android:id="@+id/editGender"
+                android:hint="Gender"
+                app:met_floatingLabel="normal"
+                app:met_primaryColor="@color/accent"
+                android:ems="20" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="Email"
+                app:met_floatingLabel="normal"
+                app:met_primaryColor="@color/accent"
+                android:nextFocusForward="@+id/editHeightInches"
+                android:ems="20"
+                android:id="@+id/editEmail" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                android:layout_marginRight="5dp"
+                android:text="@string/height"
+                android:id="@+id/heightLabel" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:gravity="right"
+                android:id="@+id/editHeightFeet"
+                android:hint="@string/height_feet_edit_text_hint"
+                android:nextFocusForward="@+id/editHeightInches"
+                android:imeOptions="actionNext"
+                app:met_floatingLabel="normal"
+                android:inputType="number"
+                app:met_primaryColor="@color/accent"
+                android:ems="2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:textSize="18sp"
+                android:layout_marginRight="5dp"
+                android:text="@string/apostrophe" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:gravity="right"
+                android:id="@+id/editHeightInches"
+                android:hint="@string/height_inches_edit_text_hint"
+                app:met_floatingLabel="normal"
+                android:inputType="number"
+                app:met_primaryColor="@color/accent"
+                android:ems="4" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:textSize="18sp"
+                android:text="@string/quote" />
+
+            </LinearLayout>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:id="@+id/editWeight"
+                android:hint="Weight (lbs.)"
+                app:met_floatingLabel="normal"
+                app:met_primaryColor="@color/accent"
+                android:ems="20" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/cancel"
+                android:id="@+id/cancelButton"
+                android:textColor="@color/default_color"
+                android:onClick="onCancel" />
+
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:id="@+id/createAccountButton"
+                android:text="@string/create_account"
+                android:textColor="@color/default_color"
+                android:onClick="onCreateAccountPressed"/>
+        </LinearLayout>
+
+        </LinearLayout>
+
+    </com.gc.materialdesign.views.ScrollView>
+
+</LinearLayout>

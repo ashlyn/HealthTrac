@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <org.eazegraph.lib.charts.PieChart
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/goal_piechart"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:padding="8dp"
+        app:egLegendHeight="0dp"
+        app:egLegendTextSize="0sp"
+        app:egUsePieRotation="true"
+        app:egInnerPadding="80"
+        app:egUseCustomInnerValue="true"
+        app:egValueTextSize="20sp"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/secondary_accent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginLeft="10dp"
+        android:text="timeframe"
+        android:id="@+id/view_goal_timeframe" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="goal type"
+        android:id="@+id/view_goal_type" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Goal type and number"
+        android:id="@+id/goal_value" />
+
+</LinearLayout>

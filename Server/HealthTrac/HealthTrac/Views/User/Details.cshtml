@@ -1,0 +1,175 @@
+﻿@using HealthTrac.Models
+@using HealthTrac.Utilities
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+@model HealthTrac.Models.User
+    @Html.AntiForgeryToken();
+    
+    <div class="col-md-12 heading-block">
+        <img src="@Model.ImageUrl" style="float: left; padding-right: 20px" />
+        <div>
+            <h2>@Model.FullName</h2>
+        </div>
+    </div>
+
+<div class="row">
+<div class="col-md-6">
+    <h4>Info</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt style="text-align:left">
+            UserName
+        </dt>
+
+        <dd style="text-align:left">
+            @Html.DisplayFor(model => Model.UserName)
+        </dd>
+
+        <dt style="text-align:left">
+            Preferred
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => Model.PreferredName)
+        </dd>
+
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => Model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => Model.Gender)
+        </dd>
+
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => Model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => Model.Email)
+        </dd>
+
+        <dt style="text-align:left">
+            Joined On
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => Model.JoinDate.Date)
+        </dd>
+
+        <dt style="text-align:left">
+            Birthday
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => Model.BirthDate.Date)
+        </dd>
+
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => Model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => Model.Location)
+        </dd>
+        @{
+    if (User.Identity.GetUserId().Equals(Model.Id))
+    {
+        <dt style="text-align:left">
+            Height
+        </dt>
+        <dd>
+            @string.Format("{0}'{1}\"", Model.HeightFeet, Model.HeightInches)
+        </dd>
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weight) lbs
+        </dd>
+    }
+        }
+    </dl>
+</div>
+
+    <div class="col-md-6">
+        <h4>@Model.PreferredName's Badges</h4>
+        @{
+            var badges = Model.Badges.Select(b => b.Badge).ToList();
+            if (badges.Count() == 0)
+            {
+                <p>@Model.PreferredName hasn't earned any badges yet!</p>
+            }
+            else
+            {
+                <div class="list-group">
+                    @foreach (Badge b in badges)
+                    {
+                        @Html.DisplayBadge(b)
+                        ;
+                    }
+                </div>
+            }
+        }
+    </div>
+    </div>
+
+    <div class="row">
+        @if (User.Identity.GetUserId() != Model.Id)
+        {
+            @Html.Action("FriendActivityStacked", "Chart", new { userId = User.Identity.GetUserId(), friendId = Model.Id, name = Model.PreferredName })
+        }
+        else {
+            <div class="col-md-6">
+                <h4>Today's Activities</h4>
+                @{
+                    var activities = Model.Activities.Where(a => a.StartTime.Date == DateTime.UtcNow.LocalTime().Date).ToList();
+                    if (activities.Count() == 0)
+                    {
+                        <p>@Model.PreferredName hasn't worked out today.</p>
+                    }
+                    else
+                    {
+                        <div class="list-group">
+                            @foreach (Activity a in activities)
+                            {
+                                @Html.DisplayActivity(a)
+                            }
+                        </div>
+                    }
+                }
+            </div>
+        }
+
+        <div class="col-md-6">
+            <h4>@Model.PreferredName's Groups</h4>
+            @{
+                var memberships = Model.GroupMembership.Where(m => m.Status == Status.Admin || m.Status == Status.Member);
+                var groups = memberships.Select(g => g.Group);
+                if (groups.Count() == 0)
+                {
+                    <p>@Model.PreferredName hasn't joined any groups yet!</p>
+                }
+                else
+                {
+                    <div class="list-group">
+                        @foreach (Group g in groups)
+                        {
+                            @Html.DisplayGroup(g)
+                        }
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+else
+{
+    <h2>You must be logged to view user information.</h2>
+}
+    

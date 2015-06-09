@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.view.ViewPager
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/goal_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.view.PagerTitleStrip android:id="@+id/goal_pager_title_strip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@color/accent"
+            android:textColor="@color/default_color"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp" />
+
+    </android.support.v4.view.ViewPager>
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/goal_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fab_addButtonColorNormal="@color/accent"
+        app:fab_addButtonColorPressed="@color/accent_pressed"
+        app:fab_addButtonPlusIconColor="@color/default_color"
+        app:fab_labelStyle="@style/menu_labels_style"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone">
+
+            <com.getbase.floatingactionbutton.AddFloatingActionButton
+                android:id="@+id/add_goal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_plusIconColor="@color/default_color"
+                app:fab_colorNormal="@color/accent"
+                app:fab_colorPressed="@color/accent_pressed"
+                app:fab_size="mini"
+                app:fab_title="@string/add_goal" />
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/challenge_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_colorNormal="@color/accent"
+                app:fab_colorPressed="@color/accent_pressed"
+                app:fab_icon="@drawable/challenge"
+                app:fab_size="mini"
+                app:fab_title="@string/challenge_friend"/>
+
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+    <include
+        layout="@layout/loading_layout"
+        android:id="@+id/loading_screen" />
+
+</RelativeLayout>

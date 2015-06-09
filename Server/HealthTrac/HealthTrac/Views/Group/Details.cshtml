@@ -1,0 +1,64 @@
+﻿@using HealthTrac.Models
+@using HealthTrac.Utilities
+@using Microsoft.AspNet.Identity
+@if(Request.IsAuthenticated)
+{
+@model HealthTrac.Models.Group
+    @Html.AntiForgeryToken();
+
+    ViewBag.Title = "Details";
+
+    <div class="col-md-12 heading-block">
+
+        <img src="@Model.ImageUrl"/>
+        <div>
+            <h2>@Model.GroupName</h2>
+            <h3>@Model.Description</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        @if (Model.GroupMembers.Where(m => m.Status == Status.Admin || m.Status == Status.Member).Select(u => u.UserId).Contains(User.Identity.GetUserId()))
+        {
+            @Html.Action("StepsVsGroup", "Chart", new { userId = User.Identity.GetUserId(), group = Model })
+            @Html.Action("GroupActivityStacked", "Chart", new { userId = User.Identity.GetUserId(), group = Model })
+        }
+    </div>
+<div class="row">
+    <div class="col-md-6">
+        <h4>Distance Leaders</h4>
+        <hr />
+        @Html.Action("DistanceLeaderboard", "Leaderboard", new { group = Model })
+    </div>
+    <div class="col-md-6">
+        <h4>Members</h4>
+        <hr/>
+        @{
+            var memberships = Model.GroupMembers.Where(m => m.Status == Status.Admin || m.Status == Status.Member);
+            var users = memberships.Select(u => u.User);
+            if (users.Count() != 0)
+            {
+                <div class="list-group">
+                    @foreach (User u in users)
+                    {
+                        @Html.DisplayUser(u)
+                    }
+                </div>
+            }
+            else
+            {
+                <p>@Model.GroupName doesn't have any members.</p>
+            }
+        }
+
+
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+}
+else 
+{
+    <h2>You must be logged in to view group information.</h2>
+}

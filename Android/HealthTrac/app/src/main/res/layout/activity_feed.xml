@@ -1,0 +1,104 @@
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.group7.healthtrac.FeedActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/feed_drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <include
+            android:id="@+id/feed_tool_bar"
+            layout="@layout/tool_bar" />
+
+        <com.astuetz.PagerSlidingTabStrip
+            android:id="@+id/feed_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:textColor="@color/white_transparent"
+            app:pstsTextColorSelected="@color/default_color"
+            app:pstsIndicatorColor="@color/default_color"
+            app:pstsShouldExpand="true"
+            app:pstsPaddingMiddle="true"
+            android:layout_below="@+id/feed_tool_bar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/feed_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/feed_tabs" />
+
+        <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:id="@+id/feed_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_addButtonColorNormal="@color/accent"
+            app:fab_addButtonColorPressed="@color/accent_pressed"
+            app:fab_addButtonPlusIconColor="@color/default_color"
+            app:fab_labelStyle="@style/menu_labels_style"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp" >
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/add_activity_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="addActivity"
+                app:fab_colorNormal="@color/accent"
+                app:fab_colorPressed="@color/accent_pressed"
+                app:fab_icon="@drawable/ic_run"
+                app:fab_size="mini"
+                app:fab_title="@string/add_activity"/>
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/update_mood_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="updateMood"
+                app:fab_icon="@drawable/emoticon"
+                app:fab_colorNormal="@color/accent"
+                app:fab_colorPressed="@color/accent_pressed"
+                app:fab_size="mini"
+                app:fab_title="@string/add_mood" />
+
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+        <include
+            layout="@layout/error_page"
+            android:id="@+id/error_page" />
+
+        <Space
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/feed_item_focus_point"
+            android:layout_below="@+id/feed_tabs"
+            android:layout_toRightOf="@+id/menu_focus_point"
+            android:layout_toEndOf="@+id/menu_focus_point" />
+
+        <Space
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/menu_focus_point" />
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/feed_recycler_view"
+        android:layout_width="320dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/default_color"
+        android:scrollbars="vertical" />
+
+</android.support.v4.widget.DrawerLayout>

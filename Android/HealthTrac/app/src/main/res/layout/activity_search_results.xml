@@ -1,0 +1,81 @@
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.group7.healthtrac.SearchResultsActivity"
+    android:id="@+id/search_drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:layout_height="fill_parent">
+
+        <include
+            android:id="@+id/search_tool_bar"
+            layout="@layout/tool_bar" />
+
+        <include
+            layout="@layout/error_page"
+            android:id="@+id/error_page" />
+
+        <include
+            layout="@layout/loading_layout"
+            android:id="@+id/loading_screen" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Search Results"
+                android:layout_marginTop="10dp"
+                android:id="@+id/textView3"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_marginLeft="10dp"
+                android:text="@string/search_users_label"
+                android:id="@+id/textView4" />
+
+            <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="212dp"
+                android:id="@+id/search_user_list"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="0.29" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/search_groups_label"
+                android:id="@+id/textView5" />
+
+            <ListView
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_height="179dp"
+                android:id="@+id/search_group_list" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_recycler_view"
+        android:layout_width="320dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/default_color"
+        android:scrollbars="vertical" />
+
+</android.support.v4.widget.DrawerLayout>

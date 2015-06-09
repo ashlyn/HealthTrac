@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        layout="@layout/loading_layout"
+        android:id="@+id/loading_screen" />
+
+    <com.gc.materialdesign.views.ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/account_info">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/info_section"
+            android:background="@color/primary_color">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:id="@+id/user_image"
+                    android:src="@drawable/account_and_control"
+                    android:contentDescription="@string/profile_description"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"/>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/name"
+                        android:id="@+id/userFullName"
+                        android:textColor="@color/default_color"
+                        android:textSize="25sp" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_profile_edit_fullname"
+                        android:visibility="gone"
+                        android:hint="Full name"
+                        android:text="@string/name"
+                        android:singleLine="true"
+                        android:layout_marginRight="5dp"
+                        app:met_floatingLabel="normal"
+                        app:met_primaryColor="@color/accent"
+                        android:ems="20" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/preferred_name"
+                        android:id="@+id/preferredName"
+                        android:textColor="@color/default_color"
+                        android:textSize="25sp" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_profile_edit_preferred_name"
+                        android:visibility="gone"
+                        android:text="@string/preferred_name"
+                        android:singleLine="true"
+                        android:hint="Preferred name"
+                        android:layout_marginRight="5dp"
+                        app:met_floatingLabel="normal"
+                        app:met_primaryColor="@color/accent"
+                        android:ems="20" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/profile_info"
+                android:visibility="visible"
+                android:layout_marginBottom="5dp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/view_birthday"
+                        android:textColor="@color/default_color"
+                        android:id="@+id/birthday"
+                        android:layout_marginRight="5dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/default_color"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/view_profile_birthday" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_profile_edit_birthday"
+                        android:visibility="gone"
+                        android:singleLine="true"
+                        android:inputType="date"
+                        android:hint="mm/dd/yyyy"
+                        android:layout_marginRight="5dp"
+                        app:met_floatingLabel="normal"
+                        app:met_primaryColor="@color/accent"
+                        android:ems="20" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/gender"
+                        android:textColor="@color/default_color"
+                        android:id="@+id/gender"
+                        android:layout_marginRight="5dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/default_color"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/view_profile_gender" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_profile_edit_gender"
+                        android:visibility="gone"
+                        android:singleLine="true"
+                        android:layout_marginRight="5dp"
+                        android:nextFocusForward="@+id/view_profile_edit_height_feet"
+                        app:met_floatingLabel="normal"
+                        app:met_primaryColor="@color/accent"
+                        android:ems="20" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/height"
+                        android:textColor="@color/default_color"
+                        android:id="@+id/height"
+                        android:layout_marginRight="5dp" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:visibility="gone"
+                        android:gravity="right"
+                        android:id="@+id/view_profile_edit_height_feet"
+                        android:hint="@string/height_feet_edit_text_hint"
+                        android:nextFocusForward="@+id/view_profile_edit_height_inches"
+                        android:imeOptions="actionNext"
+                        app:met_floatingLabel="normal"
+                        android:inputType="number"
+                        app:met_primaryColor="@color/accent"
+                        android:ems="2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:visibility="gone"
+                        android:textSize="18sp"
+                        android:id="@+id/view_profile_apostrophe"
+                        android:layout_marginRight="5dp"
+                        android:text="@string/apostrophe" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:visibility="gone"
+                        android:gravity="right"
+                        android:id="@+id/view_profile_edit_height_inches"
+                        android:hint="@string/height_inches_edit_text_hint"
+                        app:met_floatingLabel="normal"
+                        android:inputType="number"
+                        app:met_primaryColor="@color/accent"
+                        android:ems="4" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:id="@+id/view_profile_quote"
+                        android:visibility="gone"
+                        android:textSize="18sp"
+                        android:text="@string/quote" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/default_color"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/view_profile_height_feet" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/default_color"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/view_profile_height_inches"
+                        android:layout_marginLeft="5dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/default_color"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/weight"
+                        android:id="@+id/weight"
+                        android:layout_marginRight="5dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/default_color"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/view_profile_weight" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_profile_edit_weight"
+                        android:visibility="gone"
+                        android:singleLine="true"
+                        android:layout_marginRight="5dp"
+                        app:met_floatingLabel="normal"
+                        app:met_primaryColor="@color/accent"
+                        android:ems="20" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/default_color"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/location"
+                        android:id="@+id/location"
+                        android:layout_marginRight="5dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/default_color"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/view_profile_location" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_profile_edit_location"
+                        android:visibility="gone"
+                        android:singleLine="true"
+                        android:hint="(City, state) or (City, Country)"
+                        android:layout_marginRight="5dp"
+                        app:met_floatingLabel="normal"
+                        app:met_primaryColor="@color/accent"
+                        android:ems="20" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/default_color"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Email:"
+                        android:id="@+id/email"
+                        android:layout_marginRight="5dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/default_color"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/view_profile_email" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_profile_edit_email"
+                        android:visibility="gone"
+                        android:singleLine="true"
+                        android:layout_marginRight="5dp"
+                        app:met_floatingLabel="normal"
+                        app:met_primaryColor="@color/accent"
+                        android:ems="20" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="?android:attr/buttonBarStyle"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/accent"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal">
+
+                <Button
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/edit"
+                    android:id="@+id/edit_button"
+                    android:textColor="@color/default_color"
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="gone" />
+
+                <Button
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/save"
+                    android:id="@+id/save_button"
+                    android:textColor="@color/default_color"
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="gone" />
+
+                <Button
+                    style="?android:buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/delete_account"
+                    android:id="@+id/delete_button"
+                    android:textColor="@color/default_color"
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.gc.materialdesign.views.ScrollView>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/badge_section"
+        android:layout_marginLeft="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/badge_label"
+            android:id="@+id/user_info_badge_label" />
+
+        <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/badge_list" />
+    </LinearLayout>
+
+</LinearLayout>

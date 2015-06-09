@@ -1,0 +1,165 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+hr {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.goal-progress {
+    padding-right: 40px;
+    padding-top: 40px;
+    text-indent: 25px;
+}
+
+.goal {
+    margin: 0 auto;
+    width: 98% !important;
+    height: 98% !important;
+    position: absolute;  
+}
+
+div.goal:first-child div {
+    margin: 0 auto;
+}
+
+.activityType {
+    padding: 15px;
+    width: 70%;
+    height: 20%;
+    margin-top: 25px;
+}
+
+.dailyActivityType, .hourly, .step, .scatter, .groupActivityType, .groupStep {
+    padding: 15px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+.activityType .highcharts-series-group {
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+#activity_type_container {
+    height: 75%;
+    width: 75%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+#daily_activity_container, #hourly_activity_container, #step_chart_container, #scatter-container, #group_step_container, #group_activity_container, #friend_activity_container {
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.share-button {
+    display: block;
+    float: left;
+    width: 25%;
+    text-align: right;
+    margin-top: 10px;
+}
+
+figcaption {
+    display: block;
+    float: left;
+    width: 75%;
+    padding-left: 10%;
+    margin-top: 10px;
+}
+
+.carousel-caption {
+    text-shadow: none;
+}
+
+.heading-block {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.heading-block img {
+    max-height: 150px;
+    max-width: 150px;
+    display: inline-block;
+    float: left;
+    padding-top: 20px;
+    padding-right: 15px;
+    vertical-align: text-bottom;
+}
+
+.heading-block div {
+    float: left;
+}
+
+.navbar-form {
+    width: 80%;
+}
+
+.navbar-form .input-group input {
+    font-size: 13px;
+    padding-left: 3px;
+    padding-right: 30px;
+    text-align: left;
+}
+
+.navbar-form .input-group input:focus, 
+.navbar-form .input-group input:hover {
+    background-color: #e53935;
+}
+
+.input-group .glyphicon {
+    color:  #fccbc7;
+}
+
+.list-group-item {
+}
+
+.list-group-item img {
+    height:  auto;
+    max-width:  50px;
+    display:  inline-block;
+    float:  left;
+    margin-right:  5%;
+    padding-bottom: 3px;
+}

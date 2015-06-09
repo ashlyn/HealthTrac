@@ -1,0 +1,105 @@
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.group7.healthtrac.InviteUserActivity"
+    android:id="@+id/invite_drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/invite_tool_bar"
+            layout="@layout/tool_bar" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/search_users"
+                android:id="@+id/textView31"
+                android:layout_marginRight="10dp" />
+
+            <EditText
+                android:inputType="text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/invite_search_bar" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/search"
+                android:id="@+id/invite_search"
+                android:onClick="onSearchClicked"
+                android:layout_centerInParent="true" />
+
+            <ProgressBar
+                style="@android:style/Widget.DeviceDefault.ProgressBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/invite_search_progress_bar"
+                android:indeterminate="true"
+                android:visibility="gone"
+                android:layout_toRightOf="@+id/invite_search"
+                android:layout_toEndOf="@+id/invite_search"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/users"
+                android:id="@+id/invite_user_label"
+                android:textSize="30sp"
+                android:layout_marginLeft="10dp" />
+
+            <ProgressBar
+                style="@android:style/Widget.DeviceDefault.ProgressBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/invite_invite_progress_bar"
+                android:indeterminate="true"
+                android:visibility="gone"
+                android:layout_toRightOf="@+id/invite_user_label"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/invite_user_list"
+            android:layout_marginLeft="10dp" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/invite_recycler_view"
+        android:layout_width="320dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/default_color"
+        android:scrollbars="vertical" />
+
+</android.support.v4.widget.DrawerLayout>

@@ -1,0 +1,122 @@
+﻿@using HealthTrac.Models
+@using HealthTrac.Utilities
+@if (Request.IsAuthenticated && Model != null) 
+{ 
+    @Html.AntiForgeryToken();
+    HealthTrac.Models.User user = (User)Model;
+    <div class="row">
+        @if (!user.Goals.Any())
+        {
+            <div class="jumbotron">
+                <h1>Hello, @user.PreferredName</h1>
+                <p class="lead">You haven't set any goals</p>
+            </div>
+        }
+        else
+        {
+            /*foreach (Goal goal in user.Goals)
+            {
+                @goal.CreateGoalChart()
+            }*/
+            <div class="col-md-6">
+                <h4 class="goal-progress">Goal Progress</h4>
+                @Html.DisplayGoals(user.Goals.ToList())
+            </div>
+        }
+        @Html.Action("ActivityPie", "Chart", new {user = Model})
+        @Html.Action("ActivityStacked", "Chart", new {user = Model})
+        @Html.Action("PastDay", "Chart", new {user = Model})
+        @Html.Action("StepsChart", "Chart", new {user = Model})
+        @Html.Action("Scatter", "Chart", new {user = Model})
+    </div>
+    
+    <!--
+        <div class="row">
+        <div class="col-md-4">
+            <h3>Today's Activities</h3>
+            @{
+                var activities = user.Activities.Where(a => a.StartTime.Date == DateTime.UtcNow.LocalTime().Date).ToList();
+                if (activities.Count == 0)
+                {
+                    <p>You haven't worked out today!</p>
+                }
+                else
+                {
+                    <ul class="list-group">
+                    @foreach (Activity a in activities)
+                    {
+                        @Html.DisplayActivity(a);
+                    }
+                    </ul>
+                }
+            }
+        </div>
+        <div class="col-md-4">
+            <h3>My Teams</h3>
+            @{
+                var memberships = user.GroupMembership.Where(m => m.Status == Status.Member || m.Status == Status.Admin);
+                var groups = memberships.Select(g => g.Group);
+                if (groups.Count() == 0)
+                {
+                    <p>You haven't joined any groups yet!</p>
+                }
+                else
+                {
+                    <div class="list-group">
+                    @foreach (Group g in groups)
+                    {
+                        @Html.DisplayGroup(g);
+                    }
+                    </div>
+                }
+            }
+        </div>
+        <div class="col-md-4">
+            <h3>My Badges</h3>
+            @{
+                var badges = user.Badges;
+                if (badges.Count == 0)
+                {
+                    <p>You haven't earned any badges yet!</p>
+                }
+                else
+                {
+                    <ul class="list-group">
+                    @foreach (UserBadge b in Model.Badges) {
+                        @Html.DisplayBadge(b.Badge)
+                    }
+                    </ul>
+                }
+            }
+        </div>
+        </div>
+    -->
+}
+else
+{
+    <div class="jumbotron">
+        <h1>HealthTrac</h1>
+        <p class="lead">HealthTrac is a new way to track your daily fitness activity. Checkout our Android app to get started.</p>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Fitness Tracking</h2>
+            <p>
+                The HealthTrac Android app will track fitness activities like running and walking automatically using the phone's acceleromter and GPS
+                sensor. Login with Facebook to join teams, track your activities, and start earning badges.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Join Teams</h2>
+            <p>
+                HealthTrac users can form communities, called teams, with other users. Want to start a running club or find a group to train with?
+                HealthTrac will be able to help you find a team. Connect with other users in your area.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Dashboard</h2>
+            <p>After creating an account in the Android app, you will be able to login here to view more of your statistics.</p>
+            <!--<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>-->
+        </div>
+    </div>
+}

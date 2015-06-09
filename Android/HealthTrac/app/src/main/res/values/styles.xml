@@ -1,0 +1,26 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryDark">@color/primary_color_dark</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
+    <style name="CustomShowcaseViewTheme" parent="ShowcaseView">
+        <item name="sv_backgroundColor">@color/black_semi_transparent</item>
+        <item name="sv_showcaseColor">@color/accent</item>
+        <item name="sv_titleTextColor">@color/accent</item>
+        <item name="sv_buttonText">Continue</item>
+    </style>
+    <style name="CustomBetterPickerTheme">
+        <item name="bpTitleColor">@color/accent</item>
+        <item name="bpTextColor">@color/accent</item>
+        <item name="bpDialogBackground">@drawable/dialog_full_holo_light</item>
+        <item name="bpDeleteIcon">@drawable/ic_backspace_light</item>
+        <item name="bpKeyBackground">@drawable/key_background_light</item>
+        <item name="bpButtonBackground">@drawable/button_background_light</item>
+        <item name="bpDividerColor">@color/accent</item>
+    </style>
+
+</resources>

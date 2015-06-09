@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Health Trac</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_logout">Log Out</string>
+    <string name="app_id">514957341979118</string>
+    <string name="title_activity_create_account">Create New Account</string>
+    <string name="create_account">Create New Account</string>
+    <string name="title_activity_view_profile">View Profile</string>
+    <string name="title_activity_view_other_profile">View Profile</string>
+    <string name="title_activity_view_group">View Group Info</string>
+    <string name="name">Full Name</string>
+    <string name="birthday">Birthday:</string>
+    <string name="location">Location:</string>
+    <string name="preferred_name">Preferred Name</string>
+    <string name="gender">Gender:</string>
+    <string name="height_feet">Height (Feet):</string>
+    <string name="height_inches">Height (Inches):</string>
+    <string name="weight">Weight (Lbs.):</string>
+    <string name="email">Email:</string>
+    <string name="cancel">Cancel</string>
+    <string name="health_trac">Health Trac</string>
+    <string name="endpoint">http://se7test.azurewebsites.net</string>
+    <string name="view_profile">View Profile</string>
+    <string name="view_profile_groups">Groups:</string>
+    <string name="profile_description">Profile Picture</string>
+    <string name="edit">Edit</string>
+    <string name="search_title">Search</string>
+    <string name="title_activity_search_results">Search Results</string>
+    <string name="search_groups_label">Groups:</string>
+    <string name="search_users_label">Users:</string>
+    <string name="default_primary_information">Default Primary Info</string>
+    <string name="default_secondary_information">Default Secondary Info</string>
+    <string name="search_hint">Search Users/Groups</string>
+    <string name="title_activity_create_group">Create Group</string>
+    <string name="create_group">CREATE NEW GROUP</string>
+    <string name="create_group_name">Group name</string>
+    <string name="title_edit_profile">Edit Profile</string>
+    <string name="title_edit_group">Edit Group</string>
+    <string name="create_group_description">Group description</string>
+    <string name="height">Height:</string>
+    <string name="view_birthday">Birthday:</string>
+    <string name="save">Save</string>
+    <string name="action_create_group">Create Group</string>
+    <string name="action_create_activity">Activities</string>
+    <string name="action_view_profile">View Profile</string>
+    <string name="title_activity_create_activities">Activities</string>
+    <string name="create_activity">Enter Activity</string>
+    <string name="choose_activity">Choose an Activity</string>
+    <string name="activity_type_label">Activity Type:</string>
+    <string name="create_activity_btn">Create Activity</string>
+    <string name="title_activity_record_activities">Record Activity</string>
+    <string name="google_maps_key" templateMerStrategy="preserve">AIzaSyBLRSxJuTIAHOVzpqzhJtb0XhQbRWtx0yM</string>
+    <string-array name="activities_array">
+        <item>Run</item>
+        <item>Bike</item>
+        <item>Jog</item>
+        <item>Walk</item>
+        <item>Other</item>
+    </string-array>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_gps_test">GpsTest</string>
+    <string name="durationText">Duration:</string>
+    <string name="title_activity_feed">Feeds</string>
+    <string name="banned_message">You have been banned from this group and cannot view its contents.</string>
+    <string name="mood_prompt">Choose a Mood</string>
+    <string-array name="mood_array">
+        <item>Mood1</item>
+        <item>Mood2</item>
+        <item>Mood3</item>
+        <item>Mood4</item>
+    </string-array>
+    <string name="mood_text">I\'m feeling</string>
+    <string name="update_mood">Update\nMood</string>
+    <string name="badge_label">Badges:</string>
+    <string name="title_activity_create_goal">Add a New Goal</string>
+    <string name="goal_timeframe_prompt">Goal Repeat</string>
+    <string name="goal_type_prompt">Goal Type</string>
+    <string name="goal_create_button">Create Goal</string>
+    <string name="goal_title">Create New Goal</string>
+    <string name="goal_timeframe_label">Choose a time the\ngoal should repeat</string>
+    <string name="goal_type_label">Goal Type:</string>
+    <string name="goal_target_label">Target:</string>
+    <string-array name="goal_timeframes">
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+        <item>Yearly</item>
+    </string-array>
+    <string-array name="goal_types">
+        <item>Duration</item>
+        <item>Distance</item>
+        <item>Steps</item>
+    </string-array>
+    <string name="join_group">Join Group</string>
+    <string name="leave_group">Leave Group</string>
+    <string name="group_image">Group Image Description</string>
+    <string name="title_activity_view_feed_item">ViewFeedItemActivity</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="title_activity_challenge_user">Challenge a friend</string>
+    <string name="challenge">Challenge</string>
+    <string name="challenge_friend">Challenge a Friend</string>
+    <string name="choose_friend">Choose a friend\nto challenge:</string>
+    <string name="food_name">Food name</string>
+    <string name="food_unit">Unit</string>
+    <string name="food_date">Date</string>
+    <string name="food_time">Time</string>
+    <string name="food_amount">Amount</string>
+    <string name="enter_food">Enter Food</string>
+    <string-array name="food_units">
+        <item>Oz.</item>
+        <item>Fl. Oz.</item>
+        <item>Cups</item>
+        <item>Grams</item>
+        <item>Tbsp.</item>
+        <item>Mililiters</item>
+    </string-array>
+    <string name="title_activity_invite_user">InviteUserActivity</string>
+    <string name="search_users">Search Users: </string>
+    <string name="users">Users:</string>
+    <string name="search">Search</string>
+    <string name="invite">Invite</string>
+    <string name="user_group_invited">Groups You are Invited to:</string>
+    <string name="user_group_current">Groups You are a Member of:</string>
+    <string name="title_activity_enter">Activities</string>
+    <string name="ban">Ban</string>
+    <string name="decline">Decline</string>
+    <string name="friends_section">Friends With Badge:</string>
+    <string name="user_group_other_person_current">Groups:</string>
+    <string name="minutes_label">minutes</string>
+    <string name="view_feeds">View Feeds</string>
+    <string name="summary_title">Today\'s Summary</string>
+    <string name="summary_movement_label">You moved</string>
+    <string name="steps_label">steps</string>
+    <string name="summary_distance_label">km</string>
+    <string name="summary_longest_activity_label">Longest activity</string>
+    <string name="summary_activity_list_label">Today\'s Activities</string>
+    <string name="select">SELECT</string>
+    <string name="select_image">Select an Image</string>
+    <string name="add_goal">Add a Goal</string>
+    <string name="add_group">Create a New Group</string>
+    <string name="steps_record">Steps:</string>
+    <string name="log_out_message">Are you sure you want to log out?</string>
+    <string name="confirm_log_out">Confirm Log Out</string>
+    <string name="log_out_lowercase">Log Out</string>
+    <string name="log_out">LOG OUT</string>
+    <string name="openDrawer">Open</string>
+    <string name="closeDrawer">Close</string>
+    <string name="error_message">Oops! An error has occurred, please try again later!</string>
+    <string name="set">SET</string>
+    <string name="confirm_delete_account">Delete Account?</string>
+    <string name="delete_account_message">Are you sure you want to delete your account? (This cannot be undone!)</string>
+    <string name="height_feet_edit_text_hint">ft.</string>
+    <string name="height_inches_edit_text_hint">in.</string>
+    <string name="feed_inches_label">ft\'in\"</string>
+    <string name="challenges_label">Challenges:</string>
+    <string name="title_activity_view_active_challenges">Active Challenges</string>
+    <string name="title_activity_invites_and_challenges">Invites and Challenges</string>
+    <string name="active_challenges">Active Challenges</string>
+    <string name="title_activity_view_challenge">View Challenge</string>
+    <string name="unban">UNBAN USERS</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="add_mood">Update Mood</string>
+    <string name="add_activity">Enter an Activity</string>
+    <string name="accept">ACEEPT</string>
+    <string name="apostrophe">\'</string>
+    <string name="quote">\"</string>
+
+</resources>

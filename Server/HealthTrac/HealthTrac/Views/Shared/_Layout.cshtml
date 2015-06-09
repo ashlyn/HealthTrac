@@ -1,0 +1,55 @@
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="~/Content/logo.png">
+    <title>@ViewBag.Title HealthTrac</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/highcharts")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("HealthTrac", "Index", "Home", null, new {@class = "navbar-brand"})
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li><a href=@string.Format("/user/details/{0}", User.Identity.GetUserId())>Profile</a></li>
+                        <li>
+                            <form class="navbar-form has-feedback" role="search" action=@Url.Action("Index", "Search")>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search" name="key" id="search-key">
+                                    <i class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></i>
+                                </div>
+                            </form>
+                        </li>
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - HealthTrac:  The Toolbox</p>
+        </footer>
+    </div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

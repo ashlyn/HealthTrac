@@ -1,0 +1,22 @@
+﻿@using HealthTrac.Utilities
+@model HealthTrac.Models.ChartViewModel
+
+    @if (@Model.Chart != null)
+    {
+        <div class="col-md-6">
+            <figure>
+                @Model.Chart
+                <figcaption>
+                    @Model.Caption
+                </figcaption>
+                @if (Model.UsesFacebook)
+                {
+                    <p class="share-button">@Html.DisplayFacebookButton(Model.Caption)</p>
+                }
+                else
+                {
+                    <p class="share-button">@Html.DisplayTweetButton(Model.Caption)</p>
+                }
+            </figure>
+        </div>
+    }
