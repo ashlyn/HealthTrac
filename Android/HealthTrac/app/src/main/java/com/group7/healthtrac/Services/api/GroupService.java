@@ -19,11 +19,19 @@ import com.group7.healthtrac.events.groupevents.ObtainUserInvitesEvent;
 import com.group7.healthtrac.events.groupevents.UpdateGroupEvent;
 import com.group7.healthtrac.events.groupevents.UserGroupsObtainedEvent;
 import com.group7.healthtrac.events.groupevents.UserInvitesObtainedEvent;
+import com.group7.healthtrac.models.Activity;
+import com.group7.healthtrac.models.Goal;
 import com.group7.healthtrac.models.Group;
+import com.group7.healthtrac.models.Login;
+import com.group7.healthtrac.models.Membership;
+import com.group7.healthtrac.models.User;
+import com.group7.healthtrac.models.UserBadge;
 import com.group7.healthtrac.services.utilities.Tuple;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import retrofit.Callback;
@@ -122,20 +130,36 @@ public class GroupService {
 
     @Subscribe
     public void onObtainUserGroupsEvent(ObtainUserGroupsEvent event) {
-        mApi.getGroupsByUserId(event.getUserId(), new Callback<List<Group>>() {
-            @Override
-            public void success(List<Group> groups, Response response) {
-                mBus.post(new UserGroupsObtainedEvent(groups));
-            }
+        List<Login> logins = new ArrayList<>();
+        logins.add(new Login("test", "Facebook", "testId"));
+        List<User> users = new ArrayList<>();
+        users.add(new User("Nikolas Leger", "Nik", 6, 2, 180, "Lincoln, Nebraska", new Date(),"male", "nik@gmail.com", logins, "https://graph.facebook.com/100001060356791/picture?type=large"));
+        users.add(new User("Joshua Dunne", "Josh", 6, 0, 169, "Naperville, Illinois", new Date(),"male", "josh@gmail.com", logins, "https://graph.facebook.com/1658206151/picture?type=large"));
+        users.add(new User("Michael Casper", "Mike", 6, 0, 150, "Lincoln, Nebraska", new Date(),"male", "mike@gmail.com", logins, "https://graph.facebook.com/100000483062766/picture?type=large"));
 
-            @Override
-            public void failure(RetrofitError error) {
-                if (error != null && error.getMessage() != null) {
-                    Log.e(TAG, error.getMessage());
-                }
-                mBus.post(new ApiErrorEvent("Could not obtain group member information", ApiErrorEvent.Cause.OBTAIN));
-            }
-        });
+        List<Membership> memberships = new ArrayList<>();
+        memberships.add(new Membership(1, "testing", Membership.MEMBER));
+
+        List<Group> groups = new ArrayList<>();
+        groups.add(new Group(memberships, users, 1, "Best Group", "The best group there is", "http://i.imgur.com/SqfKgdv.png"));
+        groups.add(new Group(memberships, users, 1, "Another Group", "It's pretty alright", "http://i.imgur.com/i2JyKRx.png"));
+        groups.add(new Group(memberships, users, 1, "Yet Another Group", "Eh, could be better", "http://i.imgur.com/Ebi3KnG.png"));
+
+        mBus.post(new UserGroupsObtainedEvent(groups));
+//        mApi.getGroupsByUserId(event.getUserId(), new Callback<List<Group>>() {
+//            @Override
+//            public void success(List<Group> groups, Response response) {
+//                mBus.post(new UserGroupsObtainedEvent(groups));
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError error) {
+//                if (error != null && error.getMessage() != null) {
+//                    Log.e(TAG, error.getMessage());
+//                }
+//                mBus.post(new ApiErrorEvent("Could not obtain group member information", ApiErrorEvent.Cause.OBTAIN));
+//            }
+//        });
     }
 
     @Subscribe

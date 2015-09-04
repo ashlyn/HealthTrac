@@ -58,6 +58,16 @@ public class FeedEvent implements Parcelable {
         this.Date = date;
     }
 
+    public FeedEvent(int type, int id, int eventId, String userId, java.util.Date date, String description, com.group7.healthtrac.models.User user) {
+        Type = type;
+        Id = id;
+        EventId = eventId;
+        UserId = userId;
+        Date = date;
+        Description = description;
+        User = user;
+    }
+
     public int getType() {
         return Type;
     }

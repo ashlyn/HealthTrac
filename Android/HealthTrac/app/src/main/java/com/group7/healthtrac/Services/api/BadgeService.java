@@ -2,6 +2,7 @@ package com.group7.healthtrac.services.api;
 
 import android.util.Log;
 
+import com.group7.healthtrac.ChallengeUserActivity;
 import com.group7.healthtrac.events.ApiErrorEvent;
 import com.group7.healthtrac.events.badgeevents.BadgeCreatedEvent;
 import com.group7.healthtrac.events.badgeevents.CreateBadgeEvent;
@@ -36,20 +37,21 @@ public class BadgeService {
 
     @Subscribe
     public void onObtainUserBadgesEvent(ObtainUserBadgesEvent event) {
-        mApi.getUserBadges(event.getUserId(), new Callback<List<Badge>>() {
-            @Override
-            public void success(List<Badge> badges, Response response) {
-                mBus.post(new UserBadgesObtainedEvent(badges));
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                if (error != null && error.getMessage() != null) {
-                    Log.e(TAG, error.getMessage());
-                }
-                mBus.post(new ApiErrorEvent("Could not obtain badges.", ApiErrorEvent.Cause.OBTAIN));
-            }
-        });
+        mBus.post(new UserBadgesObtainedEvent(null));
+//        mApi.getUserBadges(event.getUserId(), new Callback<List<Badge>>() {
+//            @Override
+//            public void success(List<Badge> badges, Response response) {
+//                mBus.post(new UserBadgesObtainedEvent(badges));
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError error) {
+//                if (error != null && error.getMessage() != null) {
+//                    Log.e(TAG, error.getMessage());
+//                }
+//                mBus.post(new ApiErrorEvent("Could not obtain badges.", ApiErrorEvent.Cause.OBTAIN));
+//            }
+//        });
     }
 
     @Subscribe
@@ -92,19 +94,20 @@ public class BadgeService {
 
     @Subscribe
     public void onCreateBadge(CreateBadgeEvent event) {
-        mApi.createUserBadge(event.getUserBadge(), new Callback<UserBadge>() {
-            @Override
-            public void success(UserBadge userBadge, Response response) {
-                mBus.post(new BadgeCreatedEvent(userBadge));
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                if (error != null && error.getMessage() != null) {
-                    Log.e(TAG, error.getMessage());
-                }
-                mBus.post(new ApiErrorEvent("Could not create badge.", ApiErrorEvent.Cause.CREATE));
-            }
-        });
+        mBus.post(new BadgeCreatedEvent(event.getUserBadge()));
+//        mApi.createUserBadge(event.getUserBadge(), new Callback<UserBadge>() {
+//            @Override
+//            public void success(UserBadge userBadge, Response response) {
+//                mBus.post(new BadgeCreatedEvent(userBadge));
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError error) {
+//                if (error != null && error.getMessage() != null) {
+//                    Log.e(TAG, error.getMessage());
+//                }
+//                mBus.post(new ApiErrorEvent("Could not create badge.", ApiErrorEvent.Cause.CREATE));
+//            }
+//        });
     }
 }

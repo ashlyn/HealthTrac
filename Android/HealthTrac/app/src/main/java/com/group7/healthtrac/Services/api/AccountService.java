@@ -44,20 +44,22 @@ public class AccountService {
 
     @Subscribe
     public void onCreateAccount(CreateAccountEvent event) {
-        mApi.createUser(event.getUser(), new Callback<User>() {
-            @Override
-            public void success(User user, Response response) {
-                mBus.post(new AccountCreatedEvent(user));
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                if (error != null && error.getMessage() != null) {
-                    Log.e(TAG, error.getMessage());
-                }
-                mBus.post(new ApiErrorEvent("Could not create account", ApiErrorEvent.Cause.CREATE));
-            }
-        });
+        event.getUser().setId("testing");
+        mBus.post(new AccountCreatedEvent(event.getUser()));
+//        mApi.createUser(event.getUser(), new Callback<User>() {
+//            @Override
+//            public void success(User user, Response response) {
+//                mBus.post(new AccountCreatedEvent(user));
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError error) {
+//                if (error != null && error.getMessage() != null) {
+//                    Log.e(TAG, error.getMessage());
+//                }
+//                mBus.post(new ApiErrorEvent("Could not create account", ApiErrorEvent.Cause.CREATE));
+//            }
+//        });
     }
 
     @Subscribe
@@ -82,22 +84,23 @@ public class AccountService {
     @Subscribe
     public void onGetUserBySocialNetworkId(ObtainUserByFacebookEvent event) {
         Log.i(TAG, "obtained social network request");
-        mApi.getUserBySocialNetworkId(event.getUserId(), new Callback<User>() {
-            @Override
-            public void success(User user, Response response) {
-                Log.i(TAG, "success");
-                mBus.post(new ObtainedUserByFacebookEvent(user, null));
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                if (error != null && error.getMessage() != null) {
-                    Log.e(TAG, error.getMessage());
-                }
-                Log.i(TAG, "Didn't find user");
-                mBus.post(new ObtainedUserByFacebookEvent(null, error));
-            }
-        });
+        mBus.post(new ObtainedUserByFacebookEvent(null, null));
+//        mApi.getUserBySocialNetworkId(event.getUserId(), new Callback<User>() {
+//            @Override
+//            public void success(User user, Response response) {
+//                Log.i(TAG, "success");
+//                mBus.post(new ObtainedUserByFacebookEvent(user, null));
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError error) {
+//                if (error != null && error.getMessage() != null) {
+//                    Log.e(TAG, error.getMessage());
+//                }
+//                Log.i(TAG, "Didn't find user");
+//                mBus.post(new ObtainedUserByFacebookEvent(null, error));
+//            }
+//        });
     }
 
     @Subscribe

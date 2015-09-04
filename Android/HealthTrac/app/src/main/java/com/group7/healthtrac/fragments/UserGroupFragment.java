@@ -84,7 +84,7 @@ public class UserGroupFragment extends RoboFragment {
         mApiCaller.setContext(getActivity());
         mApiCaller.registerObject(this);
         mApiCaller.requestData(new ObtainUserGroupsEvent(mUserToDisplay.getId()));
-        mLoadingLayout.setVisibility(View.VISIBLE);
+        //mLoadingLayout.setVisibility(View.VISIBLE);
     }
 
     @Override

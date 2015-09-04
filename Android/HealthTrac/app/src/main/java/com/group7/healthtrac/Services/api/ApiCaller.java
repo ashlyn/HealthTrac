@@ -70,7 +70,7 @@ public class ApiCaller implements IApiCaller {
 
     @Override
     public void requestData(IEvent event) {
-        if (checkForInternetConnection()) {
+        if (true || checkForInternetConnection()) {
             mBus.post(event);
         } else {
             mBus.post(new ApiErrorEvent("You must have an internet connection to use this feature.",

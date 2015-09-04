@@ -30,6 +30,7 @@ import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
 import com.google.inject.Inject;
 import com.group7.healthtrac.events.ApiErrorEvent;
+import com.group7.healthtrac.events.PopulateFeedEventsEvent;
 import com.group7.healthtrac.events.badgeevents.BadgeCreatedEvent;
 import com.group7.healthtrac.events.badgeevents.CreateBadgeEvent;
 import com.group7.healthtrac.events.groupevents.ObtainUserGroupsEvent;
@@ -305,6 +306,7 @@ public class FeedActivity extends RoboActionBarActivity {
         if (mUser != null) {
             mApiCaller.setContext(this);
             mApiCaller.registerObject(this);
+            mApiCaller.requestData(new PopulateFeedEventsEvent(((HealthTracApplication)getApplication()).getCurrentUser()));
             determineUsersGroups();
         } else {
             Intent intent = new Intent(this, MainActivity.class);

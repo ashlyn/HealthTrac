@@ -70,7 +70,8 @@ public class GoalService {
 
     @Subscribe
     public void onGetUserGoals(ObtainUserGoalsEvent event) {
-        mApi.getUserGoals(event.getUserId(), new Callback<List<Goal>>() {
+        mBus.post(new UserGoalsObtainedEvent(goals));
+       //mApi.getUserGoals(event.getUserId(), new Callback<List<Goal>>() {
             @Override
             public void success(List<Goal> goals, Response response) {
                 mBus.post(new UserGoalsObtainedEvent(goals));

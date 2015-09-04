@@ -15,6 +15,7 @@ import com.group7.healthtrac.models.UserMood;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit.Callback;
@@ -36,20 +37,21 @@ public class MoodService {
 
     @Subscribe
     public void onUpdateMoodEvent(UpdateMoodEvent event) {
-        mApi.createUserMood(event.getUserMood(), new Callback<UserMood>() {
-            @Override
-            public void success(UserMood userMood, Response response) {
-                mBus.post(new MoodUpdatedEvent());
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                if (error != null && error.getMessage() != null) {
-                    Log.e(TAG, error.getMessage());
-                }
-                mBus.post(new ApiErrorEvent("Could not update your mood.", ApiErrorEvent.Cause.UPDATE));
-            }
-        });
+        mBus.post(new MoodUpdatedEvent());
+//        mApi.createUserMood(event.getUserMood(), new Callback<UserMood>() {
+//            @Override
+//            public void success(UserMood userMood, Response response) {
+//                mBus.post(new MoodUpdatedEvent());
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError error) {
+//                if (error != null && error.getMessage() != null) {
+//                    Log.e(TAG, error.getMessage());
+//                }
+//                mBus.post(new ApiErrorEvent("Could not update your mood.", ApiErrorEvent.Cause.UPDATE));
+//            }
+//        });
     }
 
     @Subscribe
@@ -92,19 +94,34 @@ public class MoodService {
 
     @Subscribe
     public void onObtainAllMoods(ObtainAllMoodsEvent event) {
-        mApi.getAllMoods(new Callback<List<Mood>>() {
-            @Override
-            public void success(List<Mood> moods, Response response) {
-                mBus.post(new AllMoodsObtainedEvent(moods));
-            }
+        List<Mood> moods = new ArrayList<>();
+        moods.add(new Mood("Angry", 1, "http://i.imgur.com/kClMrGV.png"));
+        moods.add(new Mood("Anxious", 2, "http://i.imgur.com/HJwmzpO.png"));
+        moods.add(new Mood("Accomplished", 3, "http://i.imgur.com/loh7Uvu.png"));
+        moods.add(new Mood("Fabulous", 4, "http://i.imgur.com/g5TYEBn.png"));
+        moods.add(new Mood("Happy", 5, "http://i.imgur.com/Z54l7Uz.png"));
+        moods.add(new Mood("Motivated", 6, "http://i.imgur.com/N1u5cxZ.png"));
+        moods.add(new Mood("Sad", 7, "http://i.imgur.com/ZZfDpFI.png"));
+        moods.add(new Mood("Salty", 8, "http://i.imgur.com/wnuMWSv.png"));
+        moods.add(new Mood("Sick", 9, "http://i.imgur.com/TqKBTvv.png"));
+        moods.add(new Mood("Sweaty", 10, "http://i.imgur.com/Tvn6NK7.png"));
+        moods.add(new Mood("Tired", 11, "http://i.imgur.com/s4bm7IR.png"));
+        moods.add(new Mood("Victorious", 12, "http://i.imgur.com/S4YZt5j.png"));
 
-            @Override
-            public void failure(RetrofitError error) {
-                if (error != null && error.getMessage() != null) {
-                    Log.e(TAG, error.getMessage());
-                }
-                mBus.post(new ApiErrorEvent("Could not obtain moods list.", ApiErrorEvent.Cause.OBTAIN));
-            }
-        });
+        mBus.post(new AllMoodsObtainedEvent(moods));
+//        mApi.getAllMoods(new Callback<List<Mood>>() {
+//            @Override
+//            public void success(List<Mood> moods, Response response) {
+//                mBus.post(new AllMoodsObtainedEvent(moods));
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError error) {
+//                if (error != null && error.getMessage() != null) {
+//                    Log.e(TAG, error.getMessage());
+//                }
+//                mBus.post(new ApiErrorEvent("Could not obtain moods list.", ApiErrorEvent.Cause.OBTAIN));
+//            }
+//        });
     }
 }

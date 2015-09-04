@@ -42,6 +42,7 @@ import com.squareup.otto.Subscribe;
 import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -130,14 +131,17 @@ public class UserInfoFragment extends RoboFragment {
         mApiCaller.setContext(getActivity());
         mApiCaller.registerObject(this);
         mApiCaller.requestData(new ObtainUserBadgesEvent(mUser.getId()));
-        mLoadingLayout.setVisibility(View.VISIBLE);
+        //mLoadingLayout.setVisibility(View.VISIBLE);
         createButtonPositions();
         showInfoShowcaseView();
     }
 
     @Subscribe
     public void onBadgesObtained(UserBadgesObtainedEvent event) {
-        mBadges = event.getBadges();
+        //mBadges = event.getBadges();
+        mBadges = new ArrayList<>();
+        mBadges.add(new Badge(0, "Join the Club", "Created a profile!", "http://i.imgur.com/YIXDwLt.png"));
+        mBadges.add(new Badge(0, "One of Us!", "Joined a group!", "http://i.imgur.com/eD27Qz1.png"));
         updateView(mUser, mBadges);
     }
 
@@ -482,7 +486,7 @@ public class UserInfoFragment extends RoboFragment {
         if (user != null) {
             mUser = user;
             ((HealthTracApplication) getActivity().getApplication()).setCurrentUser(mUser);
-            mLoadingLayout.setVisibility(View.VISIBLE);
+            //mLoadingLayout.setVisibility(View.VISIBLE);
             mApiCaller.requestData(new UpdateAccountEvent(mUser));
         }
     }
