@@ -5,6 +5,9 @@ The project will consist of a server-side API, web dashboard, and Android applic
 # HealthTrac
 RAIK383H-Group-7 :
  Mike Casper, Josh Dunne, Noah Gould, and Ashlyn Lee
+ 
+ ![SplashScreen][1]
+ 
 ### Version
 1.0
 
@@ -12,7 +15,7 @@ RAIK383H-Group-7 :
 
 Welcome to HealthTrac!
 
-HealthTrac is an innovative health and fitness application.  The goal of our product is to allow users to conveniently track the excercise they do.  In today's world, who doesn't have a smartphone?  That is why we have integrated all the benefits of expensive recording equipment into a seamless mobile and web service, driven completely by your phone!
+HealthTrac is an innovative health and fitness application.  The goal of our product is to allow users to conveniently track the excercise they do.  In today's world, who doesn't have a smartphone?  That is why we have integrated all the benefits of expensive recording equipment into a seamless mobile and web service, driven completely by your phone! Screenshots of both the mobile application and the online dashboard can be found in the screenshots folder.
 
 ###Use
 To use HealthTrac, you only need an Android device and a Facebook account.  Simply log in with your Facebook credentials after opening our application.  If it is your first time logging in, you will be presented with a screen for creating your user profile.  Please enter your full name, preferred name, birthday, location, gender, height, weight, and email.  After creating your account, you are in our database and can be found by other people.  Your profile will display certain information about you to other people.  If you want to change information, there is a button to edit it.
@@ -71,3 +74,5 @@ Ensure that you have the proper binding for Identity core. It must list 2.0.0 as
 In order to run the tests in Android Studio, you must install the plugin "Android Studio Unit Test" (version 1.4.0). To install this plugin, go to the File -> Settings and from the window that opens, under IDE Settings, click plugins. Click the Browse repositories button and search for "Android Studio Unit Test" and install. When running the tests, right click on the tests folder under ./app/src/test/ and click "Run Tests" (The one with a black and gray rectangular icon with a green and red arrow).
 
 NOTE: Directories in your home path (C:/Users/UserName) <b>CANNOT</b> have a space (" ") in the path. This is due to an error in Robolectric.
+
+[1]: ./Screenshots/main_screen.png
