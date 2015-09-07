@@ -53,20 +53,21 @@ public class GroupService {
 
     @Subscribe
     public void onCreateGroupEvent(CreateGroupEvent event) {
-        mApi.createGroup(event.getGroup(), new Callback<Group>() {
-            @Override
-            public void success(Group group, Response response) {
-                mBus.post(new GroupCreatedEvent(group));
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                if (error != null && error.getMessage() != null) {
-                    Log.e(TAG, error.getMessage());
-                }
-                mBus.post(new ApiErrorEvent("Could not create group", ApiErrorEvent.Cause.CREATE));
-            }
-        });
+        mBus.post(new GroupCreatedEvent(event.getGroup()));
+//        mApi.createGroup(event.getGroup(), new Callback<Group>() {
+//            @Override
+//            public void success(Group group, Response response) {
+//                mBus.post(new GroupCreatedEvent(group));
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError error) {
+//                if (error != null && error.getMessage() != null) {
+//                    Log.e(TAG, error.getMessage());
+//                }
+//                mBus.post(new ApiErrorEvent("Could not create group", ApiErrorEvent.Cause.CREATE));
+//            }
+//        });
     }
 
     @Subscribe

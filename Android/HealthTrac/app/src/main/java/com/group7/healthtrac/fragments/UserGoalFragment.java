@@ -84,7 +84,7 @@ public class UserGoalFragment extends RoboFragment {
         mApiCaller.setContext(getActivity());
         mApiCaller.registerObject(this);
         mApiCaller.requestData(new ObtainUserGoalsEvent(mUser.getId()));
-        mLoadingLayout.setVisibility(View.VISIBLE);
+        //mLoadingLayout.setVisibility(View.VISIBLE);
     }
 
     @Override

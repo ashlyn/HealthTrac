@@ -34,20 +34,21 @@ public class MembershipService {
 
     @Subscribe
     public void onCreateMembershipEvent(CreateMembershipEvent event) {
-        mApi.createMembership(new Membership(event.getGroupId(), event.getUserId(), event.getStatus()), new Callback<Membership>() {
-            @Override
-            public void success(Membership membership, Response response) {
-                mBus.post(new MembershipCreatedEvent(membership));
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                if (error != null && error.getMessage() != null) {
-                    Log.e(TAG, error.getMessage());
-                }
-                mBus.post(new ApiErrorEvent("Could not create membership", ApiErrorEvent.Cause.CREATE));
-            }
-        });
+        mBus.post(new MembershipCreatedEvent(new Membership(event.getGroupId(), event.getUserId(), event.getStatus())));
+//        mApi.createMembership(new Membership(event.getGroupId(), event.getUserId(), event.getStatus()), new Callback<Membership>() {
+//            @Override
+//            public void success(Membership membership, Response response) {
+//                mBus.post(new MembershipCreatedEvent(membership));
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError error) {
+//                if (error != null && error.getMessage() != null) {
+//                    Log.e(TAG, error.getMessage());
+//                }
+//                mBus.post(new ApiErrorEvent("Could not create membership", ApiErrorEvent.Cause.CREATE));
+//            }
+//        });
     }
 
     @Subscribe

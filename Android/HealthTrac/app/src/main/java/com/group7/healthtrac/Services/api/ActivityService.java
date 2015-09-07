@@ -37,20 +37,21 @@ public class ActivityService {
 
     @Subscribe
     public void onCreateActivityEvent(CreateActivityEvent event) {
-        mApi.createActivity(event.getActivity(), new Callback<Activity>() {
-            @Override
-            public void success(Activity activity, Response response) {
-                mBus.post(new ActivityCreatedEvent(activity));
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                if (error != null && error.getMessage() != null) {
-                    Log.e(TAG, error.getMessage());
-                }
-                mBus.post(new ApiErrorEvent("Could not create activity", ApiErrorEvent.Cause.CREATE));
-            }
-        });
+        mBus.post(new ActivityCreatedEvent(event.getActivity()));
+//        mApi.createActivity(event.getActivity(), new Callback<Activity>() {
+//            @Override
+//            public void success(Activity activity, Response response) {
+//                mBus.post(new ActivityCreatedEvent(activity));
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError error) {
+//                if (error != null && error.getMessage() != null) {
+//                    Log.e(TAG, error.getMessage());
+//                }
+//                mBus.post(new ApiErrorEvent("Could not create activity", ApiErrorEvent.Cause.CREATE));
+//            }
+//        });
     }
 
     @Subscribe
@@ -74,20 +75,21 @@ public class ActivityService {
 
     @Subscribe
     public void onClassifyActivity(ClassifyActivityEvent event) {
-        mApi.classifyActivity(event.getActivity(), new Callback<Integer>() {
-            @Override
-            public void success(Integer integer, Response response) {
-                mBus.post(new ActivityClassifiedEvent(integer));
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                if (error != null && error.getMessage() != null) {
-                    Log.e(TAG, error.getMessage());
-                }
-                mBus.post(new ApiErrorEvent("Could not classify activity.", ApiErrorEvent.Cause.OBTAIN));
-            }
-        });
+        mBus.post(new ActivityClassifiedEvent(0));
+//        mApi.classifyActivity(event.getActivity(), new Callback<Integer>() {
+//            @Override
+//            public void success(Integer integer, Response response) {
+//                mBus.post(new ActivityClassifiedEvent(integer));
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError error) {
+//                if (error != null && error.getMessage() != null) {
+//                    Log.e(TAG, error.getMessage());
+//                }
+//                mBus.post(new ApiErrorEvent("Could not classify activity.", ApiErrorEvent.Cause.OBTAIN));
+//            }
+//        });
     }
 
     @Subscribe

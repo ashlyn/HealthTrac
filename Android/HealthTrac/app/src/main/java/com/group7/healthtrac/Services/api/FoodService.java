@@ -51,19 +51,20 @@ public class FoodService {
 
     @Subscribe
     public void onCreateFoodEvent(CreateFoodEvent event) {
-        mApi.createFood(event.getFood(), new Callback<Food>() {
-            @Override
-            public void success(Food food, Response response) {
-                mBus.post(new FoodCreatedEvent(food));
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                if (error != null && error.getMessage() != null) {
-                    Log.e(TAG, error.getMessage());
-                }
-                mBus.post(new ApiErrorEvent("Could not add food eaten.", ApiErrorEvent.Cause.CREATE));
-            }
-        });
+        mBus.post(new FoodCreatedEvent(event.getFood()));
+//        mApi.createFood(event.getFood(), new Callback<Food>() {
+//            @Override
+//            public void success(Food food, Response response) {
+//                mBus.post(new FoodCreatedEvent(food));
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError error) {
+//                if (error != null && error.getMessage() != null) {
+//                    Log.e(TAG, error.getMessage());
+//                }
+//                mBus.post(new ApiErrorEvent("Could not add food eaten.", ApiErrorEvent.Cause.CREATE));
+//            }
+//        });
     }
 }
