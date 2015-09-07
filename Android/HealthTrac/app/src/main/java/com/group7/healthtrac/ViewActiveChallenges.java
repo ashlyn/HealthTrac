@@ -175,7 +175,7 @@ public class ViewActiveChallenges extends RoboActionBarActivity {
                 .setStyle(R.style.CustomShowcaseViewTheme)
                 .setContentTitle("Active Challenges")
                 .setContentText("If you have any active challenges with friend's you can find them on this page and click on them to see a comparison of how you and your friend are doing.")
-                .singleShot(60)
+                //.singleShot(60)
                 .build();
 
         challengeShowcase.setButtonPosition(lps);

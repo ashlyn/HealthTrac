@@ -150,7 +150,7 @@ public class FeedActivity extends RoboActionBarActivity {
                 .setStyle(R.style.CustomShowcaseViewTheme)
                 .setContentTitle("Welcome to HealthTrac!")
                 .setContentText("This is the feeds page. You can find updates on what you have accomplished here. Once you join some teams, you can swipe to the right to view the activity of your teammates as well!")
-                .singleShot(1)
+                //.singleShot(1)
                 .build();
 
         welcomeView.setButtonPosition(mButtonPositionLowerCenter);
@@ -179,7 +179,7 @@ public class FeedActivity extends RoboActionBarActivity {
                 .setStyle(R.style.CustomShowcaseViewTheme)
                 .setContentTitle("Feed Items")
                 .setContentText("Clicking on a feed item will display more details about the event!")
-                .singleShot(2)
+                //.singleShot(2)
                 .build();
 
         secondView.setButtonPosition(mButtonPositionLowerCenter);
@@ -209,7 +209,7 @@ public class FeedActivity extends RoboActionBarActivity {
                 .setContentTitle("Give status updates")
                 .setContentText("Press this button to record new activities or give mood updates for friends to see!")
                 .setStyle(R.style.CustomShowcaseViewTheme)
-                .singleShot(3)
+                //.singleShot(3)
                 .build();
 
         moodShowcase.setButtonPosition(mButtonPositionLowerLeft);
@@ -239,7 +239,7 @@ public class FeedActivity extends RoboActionBarActivity {
                 .setContentText("This button opens the menu to navigate throughout the app. You can either press it to view the" +
                         " menu or start a swipe to the right from the left edge of your screen!")
                 .setStyle(R.style.CustomShowcaseViewTheme)
-                .singleShot(4)
+                //.singleShot(4)
                 .build();
 
         moodShowcase.setButtonPosition(mButtonPositionLowerCenter);
@@ -268,7 +268,7 @@ public class FeedActivity extends RoboActionBarActivity {
                 .setContentTitle("Log Out")
                 .setContentText("You can log out at any time by pressing this button!")
                 .setStyle(R.style.CustomShowcaseViewTheme)
-                .singleShot(5)
+                //.singleShot(5)
                 .build();
 
         logOutShowcase.setButtonPosition(mButtonPositionLowerCenter);

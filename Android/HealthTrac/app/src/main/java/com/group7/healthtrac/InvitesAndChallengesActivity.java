@@ -159,7 +159,7 @@ public class InvitesAndChallengesActivity extends RoboActionBarActivity {
                 .setStyle(R.style.CustomShowcaseViewTheme)
                 .setContentTitle("Invites and Challenges")
                 .setContentText("If you have any invites to groups or pending challenges from other users, you can find them here! Click on an item to be able to accent the invite or challenge.")
-                .singleShot(50)
+                //.singleShot(50)
                 .build();
 
         challengeShowcase.setButtonPosition(lps);

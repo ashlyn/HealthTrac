@@ -173,7 +173,7 @@ public class CreateGoalActivity extends RoboActionBarActivity {
                 .setContentTitle("Create a Goal")
                 .setContentText("From this page, you can create a new goal. You may select the time frame for repetition, the goal type and the target.")
                 .setStyle(R.style.CustomShowcaseViewTheme)
-                .singleShot(20)
+                //.singleShot(20)
                 .build();
 
         infoShowcase.setButtonPosition(mButtonPositionBottomCenter);
@@ -202,7 +202,7 @@ public class CreateGoalActivity extends RoboActionBarActivity {
                 .setContentTitle("Time Frame")
                 .setContentText("The choices for repetition time frames are daily, weekly, and yearly.")
                 .setStyle(R.style.CustomShowcaseViewTheme)
-                .singleShot(21)
+                //.singleShot(21)
                 .build();
 
         infoShowcase.setButtonPosition(mButtonPositionBottomCenter);
@@ -231,7 +231,7 @@ public class CreateGoalActivity extends RoboActionBarActivity {
                 .setContentTitle("Goal Type")
                 .setContentText("The choices for goal type are duration, distance, and steps.")
                 .setStyle(R.style.CustomShowcaseViewTheme)
-                .singleShot(22)
+                //.singleShot(22)
                 .build();
 
         infoShowcase.setButtonPosition(mButtonPositionBottomCenter);

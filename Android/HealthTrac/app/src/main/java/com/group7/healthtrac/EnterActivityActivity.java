@@ -177,7 +177,7 @@ public class EnterActivityActivity extends RoboActionBarActivity {
                 .setContentTitle("Today's Summary")
                 .setContentText("This page displays your activity totals for today!")
                 .setStyle(R.style.CustomShowcaseViewTheme)
-                .singleShot(30)
+                //.singleShot(30)
                 .build();
 
         summaryShowcase.setButtonPosition(mButtonPositionBottomCenter);
@@ -206,7 +206,7 @@ public class EnterActivityActivity extends RoboActionBarActivity {
                 .setContentTitle("Enter an Activity")
                 .setContentText("You can enter an activity you performed on this page!")
                 .setStyle(R.style.CustomShowcaseViewTheme)
-                .singleShot(31)
+                //.singleShot(31)
                 .build();
 
         enterActivityShowcase.setButtonPosition(mButtonPositionBottomCenter);
@@ -235,7 +235,7 @@ public class EnterActivityActivity extends RoboActionBarActivity {
                 .setContentTitle("Record an Activity")
                 .setContentText("You can record an activity while you exercise on this page!")
                 .setStyle(R.style.CustomShowcaseViewTheme)
-                .singleShot(32)
+                //.singleShot(32)
                 .build();
 
         recordActivityShowcase.setButtonPosition(mButtonPositionBottomLeft);
@@ -264,7 +264,7 @@ public class EnterActivityActivity extends RoboActionBarActivity {
                 .setContentTitle("Enter a Meal")
                 .setContentText("You can enter any meals you eat on this page!")
                 .setStyle(R.style.CustomShowcaseViewTheme)
-                .singleShot(33)
+                //.singleShot(33)
                 .build();
 
         enterMealShowcase.setButtonPosition(mButtonPositionBottomCenter);

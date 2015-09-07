@@ -162,7 +162,7 @@ public class CreateGroupActivity extends RoboActionBarActivity {
                 .setContentTitle("Group Image")
                 .setContentText("Press this button to select an image for your group!")
                 .setStyle(R.style.CustomShowcaseViewTheme)
-                .singleShot(100)
+                //.singleShot(100)
                 .build();
 
         infoShowcase.setButtonPosition(buttonPosition);
